@@ -30,16 +30,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tomcat-svc
-  namespace: tomcat 
+  namespace: nginx
 spec:
   selector:
     app: tomcat
   ports:
-    - protocol: TCP
-      port: 9377  # Exposed port for the cluster 
-      targetPort: 8080  # Container port
-      # Optional field
-      # By default and for convenience, the Kubernetes control plane
-      # will allocate a port from a range (default: 30000-32767)
-      #nodePort: 30007
-  #type: NodePort
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
