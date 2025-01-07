@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Tomcat-deployment
+  namespace: Tomcat
+  labels:
+    app: Tomcat
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: Tomcat
+  template:
+    metadata:
+      labels:
+        app: Tomcat
+    spec:
+      containers:
+      - name: Tomcat-container
+        image: 
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: Tomcat-svc
+  namespace: Tomcat 
+spec:
+  selector:
+    app: Tomcat
+  ports:
+    - protocol: TCP
+      port: 9376  # Exposed port for the cluster 
+      targetPort: 80  # Container port
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane
+      # will allocate a port from a range (default: 30000-32767)
+      #nodePort: 30007
+  #type: NodePort

@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  namespace: httpd
+  labels:
+    app: httpd
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: httpd
+  template:
+    metadata:
+      labels:
+        app: httpd
+    spec:
+      containers:
+      - name: httpd-container
+        image: 
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpd-svc
+  namespace: httpd 
+spec:
+  selector:
+    app: httpd
+  ports:
+    - protocol: TCP
+      port: 9376  # Exposed port for the cluster 
+      targetPort: 80  # Container port
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane
+      # will allocate a port from a range (default: 30000-32767)
+      #nodePort: 30007
+  #type: NodePort
