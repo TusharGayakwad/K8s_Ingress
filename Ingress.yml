@@ -17,7 +17,7 @@ spec:
           service:
             name: nginx-svc
             port:
-              number: 80
+              number: 80 
   - host: tomcat.app.com
     http:
       paths:
@@ -27,7 +27,7 @@ spec:
           service:
             name: tomcat-svc
             port:
-              number: 80
+              number: 90
   - host: httpd.app.com
     http:
       paths:
@@ -37,4 +37,4 @@ spec:
           service:
             name: httpd-svc
             port:
-              number: 80
+              number: 70
