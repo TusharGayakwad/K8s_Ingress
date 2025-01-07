@@ -18,10 +18,10 @@ spec:
     spec:
       containers:
       - name: Tomcat-container
-        image: 
+        image: tushargayakwad29/tomcat:latest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 
 
 ---
@@ -36,8 +36,8 @@ spec:
     app: Tomcat
   ports:
     - protocol: TCP
-      port: 9376  # Exposed port for the cluster 
-      targetPort: 80  # Container port
+      port: 9377  # Exposed port for the cluster 
+      targetPort: 8080  # Container port
       # Optional field
       # By default and for convenience, the Kubernetes control plane
       # will allocate a port from a range (default: 30000-32767)

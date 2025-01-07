@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: httpd-container
-        image: 
+        image: tushargayakwad29/httpd:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
@@ -36,7 +36,7 @@ spec:
     app: httpd
   ports:
     - protocol: TCP
-      port: 9376  # Exposed port for the cluster 
+      port: 9378  # Exposed port for the cluster 
       targetPort: 80  # Container port
       # Optional field
       # By default and for convenience, the Kubernetes control plane
