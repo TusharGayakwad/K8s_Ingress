@@ -11,7 +11,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: "/"
+        path: "/nginx"
         backend:
           service:
             name: nginx-svc
