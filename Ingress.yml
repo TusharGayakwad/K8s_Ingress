@@ -2,11 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: minimal-ingress
-  label: ingress
-
+  labels:  
+    app: ingress
 spec:
+  ingressClassName: nginx 
   rules:
-  ingressClassName: nginx
   - host: nginx.app.com
     http:
       paths:
