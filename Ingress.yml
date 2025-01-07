@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  label: ingress
+
+spec:
+  rules:
+  ingressClassName: nginx
+  - host: nginx.app.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: nginx-svc
+            port:
+              number: 80
+  - host: tomcat.app.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: tomcat-svc
+            port:
+              number: 80
+  - host: httpd.app.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: httpd-svc
+            port:
+              number: 80
