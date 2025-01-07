@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Tomcat-deployment
-  namespace: Tomcat
+  name: tomcat-deployment
+  namespace: tomcat
   labels:
-    app: Tomcat
+    app: tomcat
 
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: Tomcat
+      app: tomcat
   template:
     metadata:
       labels:
-        app: Tomcat
+        app: tomcat
     spec:
       containers:
-      - name: Tomcat-container
+      - name: tomcat-container
         image: tushargayakwad29/tomcat:latest
         imagePullPolicy: IfNotPresent
         ports:
@@ -29,11 +29,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: Tomcat-svc
-  namespace: Tomcat 
+  name: tomcat-svc
+  namespace: tomcat 
 spec:
   selector:
-    app: Tomcat
+    app: tomcat
   ports:
     - protocol: TCP
       port: 9377  # Exposed port for the cluster 
