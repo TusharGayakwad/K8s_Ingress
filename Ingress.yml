@@ -2,16 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: minimal-ingress
-  labels:  
-    app: ingress
+  namespace: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx 
+  ingressClassName: nginx
   rules:
   - host: nginx.app.com
     http:
       paths:
       - pathType: Prefix
-        path: "/nginx"
+        path: "/"
         backend:
           service:
             name: nginx-svc
