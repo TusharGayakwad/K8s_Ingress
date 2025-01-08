@@ -1,42 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: httpd-deployment
-  namespace: httpd
+  name: tomcat-deployment
+  namespace: tomcat
   labels:
-    app: httpd
-
+    app: tomcat
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: httpd
+      app: tomcat
   template:
     metadata:
       labels:
-        app: httpd
+        app: tomcat
     spec:
       containers:
-      - name: httpd-container
-        image: tushargayakwad29/httpd:latest
+      - name: tomcat-container
+        image: tushargayakwad29/tomcat:latest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 80
-
-
+        - containerPort: 8080
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: httpd-svc
-  namespace: nginx
+  name: tomcat-svc
+  namespace: tomcat
 spec:
   selector:
-    app: httpd
+    app: tomcat
   ports:
   - protocol: TCP
-    port: 9000
-    targetPort: 80
-  
-  
+    port: 80
+    targetPort: 8080
