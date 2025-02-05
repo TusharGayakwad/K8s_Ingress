@@ -1,12 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: minimal-ingress
-  #namespace: default
+  name: app-ingress
+  # namespace: app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx
   rules:
-  - host: nginx.app.com
+  - host: a7eefb31eb1a942f8845233308391b17-526197803.us-east-1.elb.amazonaws.com
     http:
       paths:
       - path: /nginx
@@ -16,23 +17,17 @@ spec:
             name: nginx-svc
             port:
               number: 80
-  - host: tomcat.app.com
-    http:
-      paths:
-      - path: /tomcat
-        pathType: Prefix
-        backend:
-          service:
-            name: tomcat-svc
-            port:
-              number: 80
-  - host: httpd.app.com
-    http:
-      paths:
       - path: /httpd
         pathType: Prefix
         backend:
           service:
             name: httpd-svc
+            port:
+              number: 80
+      - path: /tomcat
+        pathType: Prefix
+        backend:
+          service:
+            name: tomcat-svc
             port:
               number: 80
