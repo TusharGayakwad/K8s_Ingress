@@ -4,7 +4,7 @@ metadata:
   name: app-ingress
   # namespace: app
   annotations:
-    # nginx.ingress.kubernetes.io/rewrite-target: /nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
     # nginx.ingress.kubernetes.io/rewrite-target: /httpd
     # nginx.ingress.kubernetes.io/rewrite-target: /tomcat
 spec:
