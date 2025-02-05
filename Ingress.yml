@@ -4,9 +4,9 @@ metadata:
   name: app-ingress
   # namespace: app
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /httpd
-    nginx.ingress.kubernetes.io/rewrite-target: /tomcat
+    # nginx.ingress.kubernetes.io/rewrite-target: /nginx
+    # nginx.ingress.kubernetes.io/rewrite-target: /httpd
+    # nginx.ingress.kubernetes.io/rewrite-target: /tomcat
 spec:
   rules:
   - host: a7eefb31eb1a942f8845233308391b17-526197803.us-east-1.elb.amazonaws.com
