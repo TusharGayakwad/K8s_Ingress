@@ -2,14 +2,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: app-ingress
-  # namespace: app
+  namespace: app
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    # nginx.ingress.kubernetes.io/rewrite-target: /httpd
-    # nginx.ingress.kubernetes.io/rewrite-target: /tomcat
+
 spec:
   rules:
-  - host: a7eefb31eb1a942f8845233308391b17-526197803.us-east-1.elb.amazonaws.com
+  - host: tushar.com
     http:
       paths:
       - path: /nginx
@@ -25,11 +24,11 @@ spec:
           service:
             name: httpd-svc
             port:
-              number: 80
+              number: 9000
       - path: /tomcat
         pathType: Prefix
         backend:
           service:
             name: tomcat-svc
             port:
-              number: 80
+              number: 7000
