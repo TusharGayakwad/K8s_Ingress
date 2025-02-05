@@ -8,7 +8,7 @@ metadata:
 
 spec:
   rules:
-  - host: tushar.com
+  - host: a8b9b269c978b40d4be3dbd6af65d1f9-925392983.us-east-1.elb.amazonaws.com
     http:
       paths:
       - path: /nginx
