@@ -4,32 +4,31 @@ metadata:
   name: app-ingress
   namespace: app
   annotations:
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-
 spec:
   rules:
-  - host: a8b9b269c978b40d4be3dbd6af65d1f9-925392983.us-east-1.elb.amazonaws.com
-    http:
-      paths:
-      - path: /nginx
-        pathType: Prefix
-        backend:
-          service:
-            name: nginx-svc
-            port:
-              number: 80
-      - path: /httpd
-        pathType: Prefix
-        backend:
-          service:
-            name: httpd-svc
-            port:
-              number: 9000
-      - path: /tomcat
-        pathType: Prefix
-        backend:
-          service:
-            name: tomcat-svc
-            port:
-              number: 7000
-
+    - host: a2de13067e67745a7b0efc8cd1de7959-1095939493.us-west-1.elb.amazonaws.com
+      http:
+        paths:
+          - path: /nginx
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-svc
+                port:
+                  number: 80
+          - path: /httpd
+            pathType: Prefix
+            backend:
+              service:
+                name: httpd-svc
+                port:
+                  number: 9000
+          - path: /tomcat
+            pathType: Prefix
+            backend:
+              service:
+                name: tomcat-svc
+                port:
+                  number: 7000
