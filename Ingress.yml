@@ -11,25 +11,25 @@ spec:
   - host: a8b9b269c978b40d4be3dbd6af65d1f9-925392983.us-east-1.elb.amazonaws.com
     http:
       paths:
-      - path: / #nginx
+      - path: /nginx
         pathType: Prefix
         backend:
           service:
             name: nginx-svc
             port:
               number: 80
-      # - path: /httpd
-      #   pathType: Prefix
-      #   backend:
-      #     service:
-      #       name: httpd-svc
-      #       port:
-      #         number: 9000
-      # - path: /tomcat
-      #   pathType: Prefix
-      #   backend:
-      #     service:
-      #       name: tomcat-svc
-      #       port:
-      #         number: 7000
+      - path: /httpd
+        pathType: Prefix
+        backend:
+          service:
+            name: httpd-svc
+            port:
+              number: 9000
+      - path: /tomcat
+        pathType: Prefix
+        backend:
+          service:
+            name: tomcat-svc
+            port:
+              number: 7000
 
