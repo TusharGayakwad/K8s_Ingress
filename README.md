@@ -8,7 +8,7 @@ This repository contains the Kubernetes Ingress configuration for routing traffi
 - `kubectl` installed and configured
 - Nginx Ingress Controller installed
 
-## Installing Nginx Ingress Controller (Without Helm)
+## Installing Nginx Ingress Controller  
 
 To deploy the Nginx Ingress Controller manually, follow these steps:
 
